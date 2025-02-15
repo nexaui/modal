@@ -1,0 +1,92 @@
+<div require="header"></div>
+<div class="pt-50px"></div>
+  <button
+      title="ORDER Data "
+      class="nx-btn-dark"
+      modal="formAdd"
+    />
+<Modal
+  title="Form Modal"
+  form="formidAdd"
+  id="formAdd">
+  <TextInput 
+      label="Last Name"
+      name="username"
+      iconLeft="fas fa-user"
+      placeholder="Masukkan username"
+    />
+  <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formAdd" />
+    <button title="Simpan" class="nx-btn-primary" id="sendaAdd" />
+  </footer>
+</Modal>
+
+
+<Modal
+  title="Form Modal"
+  form="formid"
+  key="B8512-7A66D-9149B-A5927"
+  id="formModal">
+  <TextInput 
+      label="Last Name"
+      name="nama"
+      iconLeft="fas fa-user"
+      value="{nama}"
+    />
+  <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formModal" />
+    <button title="Simpan" class="nx-btn-primary" id="send" />
+  </footer>
+</Modal>
+
+<Modal
+  title="Deleted Data"
+  form="setDelete"
+  class ="nx-modal-sm"
+  key="B8512-7A66D-9149B-A5927"
+  id="formDelete">
+  <h1>{nama}</h1>
+  <p>Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Alias autem aliquam sunt ipsam iure doloribus maiores molestiae cupiditate nostrum at atque quam dignissimos, nulla aspernatur eaque omnis nesciunt magnam ad?</p>
+   <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formDelete" />
+    <button title="Hapus" class="nx-btn-danger" id="sendDelete" />
+  </footer>
+
+</Modal>
+
+<FlatList
+  data="user"
+  fields="id, nama, email, desa, time, date"
+  keyextractor="row"
+  page="{slug2}"
+  perpage="6"
+  orderby="id DESC"
+>
+  <div class="product-card">
+    <h1>{row.nama}</h1>
+    <h3>NOMOR:{row.no}</h3>
+    <p>ID {row.id}</p>
+    <button
+      title="Update"
+      class="nx-btn-dark is-small"
+      modal="formModal"
+      key="{row.id}"
+    />
+
+    <button
+      title="Deleted"
+      class="nx-btn-danger is-small"
+      modal="formDelete"
+      key="{row.id}"
+    />
+
+  </div>
+</FlatList>
+<Pagination
+  nx-path="modal/"
+  nx-icon-prev="fa fa-chevron-left"
+  nx-icon-next="fa fa-chevron-right"
+  nx-current="{slug2}"
+/>
+<NexaHas key="modal/modalclass"/>
+<script import="modal/Modal.js" key="optional"></script>
