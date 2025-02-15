@@ -5,7 +5,7 @@ Modal components library untuk NexaUI framework.
 ## Instalasi
 
 ```bash
-nexa i @nexaui/modal
+ nexa i pckg@nexaui/modal
 ```
 
 ## Components
