@@ -1,0 +1,112 @@
+<div require="header"></div>
+<div class="pt-50px"></div>
+  <button
+      title="ORDER Data "
+      class="nx-btn-dark"
+      modal="formAdd"
+    />
+<Modal
+  title="Form Add"
+  form="formAdd"
+  id="formAdd">
+  <TextInput 
+      label="Last Name"
+      name="nama"
+      iconLeft="fas fa-user"
+      placeholder="Masukkan username"
+    />
+  <FileInput
+    label="Drag & Drop Files"
+    dragDrop="true"
+    multiple="true"
+    preview="true"
+    name="attachment"
+    accept="image/*,application/pdf"
+    type="file"
+    class="form-nexa"
+  />
+  <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formAdd" />
+    <button title="Simpan" class="nx-btn-primary" id="sendAdd" />
+  </footer>
+</Modal>
+<!-- Update -->
+<Modal
+  title="Form Update"
+  form="formUpdate"
+  id="formUpdate">
+  <TextInput 
+      label="Last Name"
+      name="nama"
+      iconLeft="fas fa-user"
+      placeholder="Masukkan username"
+    />
+
+  <FileInput
+    label="Drag & Drop Files"
+    dragDrop="true"
+    multiple="true"
+    preview="true"
+    name="attachment"
+    accept="image/*,application/pdf"
+    type="file"
+    class="form-nexa"
+  />
+ 
+  <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formUpdate" />
+    <button title="Simpan" class="nx-btn-primary" id="sendUpdate" />
+  </footer>
+</Modal>
+<!-- DELETE -->
+<Modal
+  title="Deleted Data"
+  form="setDelete"
+  class="nx-modal-sm"
+  id="formDelet"
+> 
+  <div extractorVar="row" id="content">
+    <h1 class="#087ea4 fs-50px">{row.nama|upper}</h1>
+  </div>
+  <footer>
+    <button title="Batalkan" class="nx-btn-secondary" close="formDelet" />
+    <button title="Hapus" class="nx-btn-danger" id="sendDelete" />
+  </footer>
+</Modal>
+
+<input
+  type="search"
+  id="searchInput"
+  class="form-control"
+  placeholder="Search..."
+  value=""
+  required="required"
+  title=""
+/>
+<div id="pageInfo" class="page-info">
+  Showing page <span id="currentPage">0</span> of
+  <span id="totalPages">0</span> (<span id="totalItems">0</span> items)
+</div>
+<div id="item" extractor="set">
+  <h3>NO:{set.no}</h3>
+  <h3>ID:{set.id}</h3>
+  <h3>{set.nama}</h3>
+  <img class="w-100px" src="/drive/{set.images}" alt="">
+  <button
+    title="Update"
+    class="nx-btn-dark is-small"
+    modal="formUpdate"
+    key="{row.id}"
+  />
+
+  <button
+    title="Deleted"
+    class="nx-btn-dark is-small"
+    modal="formDelet"
+    key="{row.id}"
+  />
+</div>
+<div id="pagination" class="pagination"></div>
+
+<script import="/modal/Modal.js" key="optional"></script>
+<NexaHas key="modal/modalclass" />

@@ -1,0 +1,9 @@
+{
+  "app": "nexaUi-modal",
+  "version": "1.0.0",
+  "developer": "tatiye.net",
+  "root": {
+    "package": "modal",
+    "public": "modal",
+  }
+} 
